@@ -140,7 +140,7 @@ public:
 	 * @param id the name of the identifier to send.
 	 * @return true if the message is sent successfully.
 	 */
-	bool PublishIdentifier(std::string topic, std::string id);
+	bool PublishIdentifier(const std::string& topic, const std::string& id);
 
 	/**
 	 * Send an event to any interested peers.
@@ -151,7 +151,7 @@ public:
 	 * @param args the event's arguments
 	 * @return true if the message is sent successfully.
 	 */
-	bool PublishEvent(std::string topic, std::string name, broker::vector args);
+	bool PublishEvent(const std::string& topic, const std::string& name, broker::vector args);
 
 	/**
 	 * Send an event to any interested peers.
@@ -162,7 +162,7 @@ public:
 	 * a Broker::Event record type.
 	 * @return true if the message is sent successfully.
 	 */
-	bool PublishEvent(std::string topic, RecordVal* ev);
+	bool PublishEvent(const std::string& topic, RecordVal* ev);
 
 	/**
 	 * Send a message to create a log stream to any interested peers.
@@ -194,7 +194,7 @@ public:
 	 * See the Broker::SendFlags record type.
 	 * @return true if the message is sent successfully.
 	 */
-	bool PublishLogWrite(EnumVal* stream, EnumVal* writer, string path, int num_vals,
+	bool PublishLogWrite(EnumVal* stream, EnumVal* writer, const string& path, int num_vals,
 			     const threading::Value* const * vals);
 
 	/**
@@ -206,7 +206,7 @@ public:
 	 * @param event a Bro event value.
 	 * @return true if automatic event sending is now enabled.
 	 */
-	bool AutoPublishEvent(std::string topic, Val* event);
+	bool AutoPublishEvent(const std::string& topic, Val* event);
 
 	/**
 	 * Stop automatically sending an event to peers upon local dispatch.
@@ -244,7 +244,7 @@ public:
 	 * and "amy" but not "bob".
 	 * @return true if it's a new event forward/subscription and it is now registered.
 	 */
-	bool Forward(std::string topic_prefix);
+	bool Forward(const std::string& topic_prefix);
 
 	/**
 	 * Unregister interest in peer event messages.
@@ -338,7 +338,7 @@ private:
 	bool ProcessLogCreate(broker::zeek::LogCreate lc);
 	bool ProcessLogWrite(broker::zeek::LogWrite lw);
 	bool ProcessIdentifierUpdate(broker::zeek::IdentifierUpdate iu);
-	void ProcessStatus(broker::status stat);
+	void ProcessStatus(const broker::status& stat);
 	void ProcessError(broker::error err);
 	void ProcessStoreResponse(StoreHandleVal*, broker::store::response response);
 	void FlushPendingQueries();
