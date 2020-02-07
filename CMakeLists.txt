@@ -1,11 +1,11 @@
 # When changing the minimum version here, also adapt
-# aux/zeek-aux/plugin-support/skeleton/CMakeLists.txt
+# auxiliary/zeek-aux/plugin-support/skeleton/CMakeLists.txt
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 project(Zeek C CXX)
 
 if ( NOT CMAKE_INSTALL_LIBDIR )
-    # Currently, some sub-projects may use GNUInstallDirs.cmake to choose the
+    # Currently, some sub-projects may use GNUInstallDirs.cmake to choose the/
     # library install dir, while others just default to "lib".  For sake of
     # consistency, this just overrides the former to always use "lib" in case
     # it would have chosen something else, like "lib64", but a thing for the
@@ -178,7 +178,7 @@ FindRequiredPackage(OpenSSL)
 FindRequiredPackage(BIND)
 FindRequiredPackage(ZLIB)
 
-if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/aux/binpac/CMakeLists.txt)
+if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/auxiliary/binpac/CMakeLists.txt)
 
     set(ENABLE_STATIC_ONLY_SAVED ${ENABLE_STATIC_ONLY})
 
@@ -186,13 +186,13 @@ if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/aux/binpac/CMakeLists.txt)
       set(ENABLE_STATIC_ONLY true)
     endif()
 
-    add_subdirectory(aux/binpac)
+    add_subdirectory(auxiliary/binpac)
     set(ENABLE_STATIC_ONLY ${ENABLE_STATIC_ONLY_SAVED})
 endif ()
 FindRequiredPackage(BinPAC)
 
 if ( NOT BIFCL_EXE_PATH )
-  add_subdirectory(aux/bifcl)
+  add_subdirectory(auxiliary/bifcl)
 endif ()
 
 if (ENABLE_JEMALLOC)
@@ -220,7 +220,7 @@ if ( CAF_ROOT_DIR )
   find_package(CAF COMPONENTS core io openssl REQUIRED)
 endif ()
 
-add_subdirectory(aux/paraglob)
+add_subdirectory(auxiliary/paraglob)
 set(zeekdeps ${zeekdeps} paraglob)
 
 if ( BROKER_ROOT_DIR )
@@ -242,7 +242,7 @@ else ()
     set(ENABLE_STATIC_ONLY true)
   endif()
 
-  add_subdirectory(aux/broker)
+  add_subdirectory(auxiliary/broker)
   set(ENABLE_STATIC_ONLY ${ENABLE_STATIC_ONLY_SAVED})
 
   if ( BUILD_STATIC_BROKER )
@@ -250,16 +250,16 @@ else ()
   else()
     set(zeekdeps ${zeekdeps} broker)
   endif()
-  set(broker_includes ${CMAKE_CURRENT_SOURCE_DIR}/aux/broker/include ${CMAKE_CURRENT_BINARY_DIR}/aux/broker/include)
+  set(broker_includes ${CMAKE_CURRENT_SOURCE_DIR}/auxiliary/broker/include ${CMAKE_CURRENT_BINARY_DIR}/auxiliary/broker/include)
 endif ()
 
 # CAF_LIBRARIES and CAF_INCLUDE_DIRS are defined either by calling
-# find_package(CAF) or by calling add_subdirectory(aux/broker). In either case,
+# find_package(CAF) or by calling add_subdirectory(auxiliary/broker). In either case,
 # we have to care about CAF here because Broker headers can pull in CAF
 # headers.
 set(zeekdeps ${zeekdeps} ${CAF_LIBRARIES})
 include_directories(BEFORE ${broker_includes} ${CAF_INCLUDE_DIRS})
-include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/aux/paraglob/include)
+include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/auxiliary/paraglob/include)
 include_directories(BEFORE
                     ${PCAP_INCLUDE_DIR}
                     ${BIND_INCLUDE_DIR}
@@ -422,8 +422,8 @@ add_subdirectory(man)
 
 include(CheckOptionalBuildSources)
 
-CheckOptionalBuildSources(aux/zeekctl   ZeekControl INSTALL_ZEEKCTL)
-CheckOptionalBuildSources(aux/zeek-aux  Zeek-Aux  INSTALL_AUX_TOOLS)
+CheckOptionalBuildSources(auxiliary/zeekctl   ZeekControl INSTALL_ZEEKCTL)
+CheckOptionalBuildSources(auxiliary/zeek-aux  Zeek-Aux  INSTALL_AUX_TOOLS)
 
 ########################################################################
 ## Packaging Setup
