@@ -6,7 +6,7 @@
 	url = https://github.com/zeek/binpac
 [submodule "auxiliary/zeekctl"]
 	path = auxiliary/zeekctl
-	url = https://github.com/zeek/zeekctl
+	url = https://github.com/alfred-landrum/zeekctl
 [submodule "auxiliary/btest"]
 	path = auxiliary/btest
 	url = https://github.com/zeek/btest
