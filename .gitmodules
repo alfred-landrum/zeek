@@ -1,14 +1,14 @@
 [submodule "aux/zeek-aux"]
-	path = aux/zeek-aux
+	path = auxiliary/zeek-aux
 	url = https://github.com/zeek/zeek-aux
 [submodule "aux/binpac"]
-	path = aux/binpac
+	path = auxiliary/binpac
 	url = https://github.com/zeek/binpac
 [submodule "aux/zeekctl"]
-	path = aux/zeekctl
+	path = auxiliary/zeekctl
 	url = https://github.com/zeek/zeekctl
 [submodule "aux/btest"]
-	path = aux/btest
+	path = auxiliary/btest
 	url = https://github.com/zeek/btest
 [submodule "cmake"]
 	path = cmake
@@ -17,17 +17,17 @@
 	path = src/3rdparty
 	url = https://github.com/zeek/zeek-3rdparty
 [submodule "aux/broker"]
-	path = aux/broker
+	path = auxiliary/broker
 	url = https://github.com/zeek/broker
 [submodule "aux/netcontrol-connectors"]
-	path = aux/netcontrol-connectors
+	path = auxiliary/netcontrol-connectors
 	url = https://github.com/zeek/zeek-netcontrol
 [submodule "aux/bifcl"]
-	path = aux/bifcl
+	path = auxiliary/bifcl
 	url = https://github.com/zeek/bifcl
 [submodule "doc"]
 	path = doc
 	url = https://github.com/zeek/zeek-docs
 [submodule "aux/paraglob"]
-	path = aux/paraglob
+	path = auxiliary/paraglob
 	url = https://github.com/zeek/paraglob
